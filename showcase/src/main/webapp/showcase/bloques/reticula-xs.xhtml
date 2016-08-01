@@ -1,0 +1,164 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="col-xs" class="anchor"></a>	
+	<h1 class="page-header">Retícula col-xs-*</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Elemento para representar una maqueta de un sitio web para dispositivos muy pequeños.</p>
+	</h:panelGroup>
+		
+	<h:panelGroup styleClass="panel panel-default" layout="block">
+		<h:panelGroup styleClass="panel-heading" layout="block">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="panel-body reticula" layout="block">
+				
+					<h:panelGroup styleClass="row" layout="block">
+						<h:panelGroup styleClass="col-xs-12" layout="block">
+							<span>col-xs-12</span>
+						</h:panelGroup>
+					</h:panelGroup>
+					
+					<h:panelGroup styleClass="row" layout="block">
+						<h:panelGroup styleClass="col-xs-6" layout="block">
+							<span>col-xs-6</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-6" layout="block">
+							<span>col-xs-6</span>
+						</h:panelGroup>
+					</h:panelGroup>
+					
+					<h:panelGroup styleClass="row" layout="block">
+						<h:panelGroup styleClass="col-xs-4" layout="block">
+							<span>col-xs-4</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-4" layout="block">
+							<span>col-xs-4</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-4" layout="block">
+							<span>col-xs-4</span>
+						</h:panelGroup>
+					</h:panelGroup>
+					
+					<h:panelGroup styleClass="row" layout="block">
+						<h:panelGroup styleClass="col-xs-3" layout="block">
+							<span>col-xs-3</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-3" layout="block">
+							<span>col-xs-3</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-3" layout="block">
+							<span>col-xs-3</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-3" layout="block">
+							<span>col-xs-3</span>
+						</h:panelGroup>
+					</h:panelGroup>
+					
+					<h:panelGroup styleClass="row" layout="block">
+						<h:panelGroup styleClass="col-xs-2" layout="block">
+							<span>col-xs-2</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-2" layout="block">
+							<span>col-xs-2</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-2" layout="block">
+							<span>col-xs-2</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-2" layout="block">
+							<span>col-xs-2</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-2" layout="block">
+							<span>col-xs-2</span>
+						</h:panelGroup>
+						<h:panelGroup styleClass="col-xs-2" layout="block">
+							<span>col-xs-2</span>
+						</h:panelGroup>
+					</h:panelGroup>
+					
+		</h:panelGroup>
+	</h:panelGroup>
+
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Esta clase esta diseñada para dispositivos extra pequeños <strong> Phones (&lt;768px).</strong></p>
+		<p class="small">Basado en 12 columnas.</p>
+		<p class="small">Se recomienda envolver las clases <code>.col-**-*</code> con la clase <code>.row</code>.</p>
+		<p class="small">Permite anidado entre clases <code>.col-sm-*</code> <code>.col-md-*</code> <code>.col-lg-*</code> para una mejor visualización en cualquier resolución.</p>
+	</h:panelGroup>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab1" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab1">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup styleClass="row" layout="block"&gt;
+	&lt;h:panelGroup styleClass="col-xs-12" layout="block"&gt;
+		 col-xs-12 
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+&lt;h:panelGroup styleClass="row" layout="block"&gt;
+	&lt;h:panelGroup styleClass="col-xs-6" layout="block"&gt;
+		 col-xs-6 
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-6" layout="block"&gt;
+		col-xs-6
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+&lt;h:panelGroup styleClass="row" layout="block"&gt;
+	&lt;h:panelGroup styleClass="col-xs-4" layout="block"&gt;
+		col-xs-4
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-4" layout="block"&gt;
+		col-xs-4
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-4" layout="block"&gt;
+		col-xs-4
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+&lt;h:panelGroup styleClass="row" layout="block"&gt;
+	&lt;h:panelGroup styleClass="col-xs-3" layout="block"&gt;
+		col-xs-3
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-3" layout="block"&gt;
+		col-xs-3
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-3" layout="block"&gt;
+		col-xs-3
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-3" layout="block"&gt;
+		col-xs-3
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+&lt;h:panelGroup styleClass="row" layout="block"&gt;
+	&lt;h:panelGroup styleClass="col-xs-2" layout="block"&gt;
+		col-xs-2
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-2" layout="block"&gt;
+		col-xs-2
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-2" layout="block"&gt;
+		col-xs-2
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-2" layout="block"&gt;
+		col-xs-2
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-2" layout="block"&gt;
+		col-xs-2
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-xs-2" layout="block"&gt;
+		col-xs-2
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

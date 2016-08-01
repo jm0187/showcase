@@ -1,0 +1,198 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="InputMask" class="anchor"></a>
+	<h1 class="page-header">InputMask</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Componente que nos obliga a que la entrada de texto cumpla un patrón específico.</p>
+	</h:panelGroup>
+
+	<h:panelGroup styleClass="panel panel-default" layout="block">
+		<h:panelGroup styleClass="panel-heading" layout="block" >EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="panel-body" layout="block" id="inputMaskComponent">
+			<h:panelGroup styleClass="row" layout="block" >
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<p:growl id="msgsInputMask" showDetail="false"/>
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:outputLabel 
+							value="Teléfono"
+							for="inputMask"/>
+	        			<p:inputMask 
+	        				id="inputMask" 
+	        				mask="(999) 999-9999" 
+	        				required="true"
+	        				requiredMessage="El número de teléfono es requerido"
+	        				styleClass="form-control"  
+	        				value="#{inputMaskMB.usuario.telefono}" />
+	        			<h:message for="inputMask" display="text" id="inputMaskMessage" styleClass="label label-danger"/>
+					</h:panelGroup>
+				</h:panelGroup>
+				<h:panelGroup styleClass="col-md-4" layout="block">
+						<p:commandButton value="Guardar" 
+							actionListener="#{inputMaskMB.click}" 
+							styleClass="btn btn-primary" 
+							update="msgsInputMask inputMaskMessage inputMaskComponent" 
+							process="@this inputMaskComponent "/>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Para el uso de este componente es necesario agregar el atributo <code> styleClass="form-control"</code>.</p>
+	</h:panelGroup>
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tabiMask1" data-toggle="tab">XHTML</a></li>
+			<li><a href="#tabiMask2" data-toggle="tab">InputMaskMB.java</a></li>
+			<li><a href="#tabiMask3" data-toggle="tab">Usuario.java</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tabiMask1">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup styleClass="panel-body" layout="block" id="inputMaskComponent"&gt;
+	&lt;h:panelGroup styleClass="row" layout="block" &gt;
+		&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+			&lt;p:growl id="msgsInputMask" showDetail="false"/&gt;
+			&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+			   &lt;p:outputLabel 
+				   value="Teléfono"
+				   for="inputMask"/&gt;
+	        	&lt;p:inputMask 
+	        		id="inputMask" 
+	        		mask="(999) 999-9999" 
+	        		required="true"
+	        		requiredMessage="El número de teléfono es requerido"
+	        		styleClass="form-control"  
+	        		value="\#{inputMaskMB.usuario.telefono}" /&gt;
+	        	&lt;h:message for="inputMask" display="text" id="inputMaskMessage" styleClass="label label-danger"/&gt;
+			&lt;/h:panelGroup&gt;
+		&lt;/h:panelGroup&gt;
+		&lt;h:panelGroup styleClass="col-md-4" layout="block"&gt;
+				&lt;p:commandButton value="Guardar" 
+					actionListener="\#{inputMaskMB.click}" 
+					styleClass="btn btn-primary" 
+					update="msgsInputMask inputMaskMessage inputMaskComponent" 
+					process="@this inputMaskComponent "/&gt;
+		&lt;/h:panelGroup&gt;
+	 &lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;</pre>
+			</div>
+			<div class="tab-pane" id="tabiMask2">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.controller;
+
+import java.io.Serializable;
+
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+
+import mx.infotec.showcase.model.Usuario;
+/**
+ *  Clase encargada del manejo del componente inputMask.
+ * @author Francisco Manuel Carrasco Lezama
+ * @version 1.0
+ * @since 24/02/2015
+ */
+@ManagedBean
+public class InputMaskMB implements Serializable{
+
+	private static final long serialVersionUID = 3415047247659296014L;
+	private Usuario usuario;
+	
+	@PostConstruct
+	public void init(){
+		 usuario = new Usuario();
+	}
+	/**
+	 * Método que se ejecuta al mandar el request de la página
+	 * y muestra la el número de teléfono generado
+	 */
+	public void click() {
+		 FacesContext facesContext = FacesContext.getCurrentInstance();
+	      facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, 
+	      "El número de teléfono es: "+this.usuario.getTelefono(),""));
+	 }
+
+	
+	//Getters Setters
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	} 
+}</pre>
+			</div>
+			
+			<div class="tab-pane" id="tabiMask3">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.model;
+
+import java.io.Serializable;
+import java.util.Date;
+/**
+ * Descripción: Esta clase representa un elemento 
+ * Usuario.
+ * @author Francisco Manuel Carrasco Lezmaa 
+ * @version 1.0
+ * @since 23/02/2015
+ */
+public class Usuario implements Serializable {
+
+	private static final long serialVersionUID = 2889829458038675871L;
+	
+	private String nombre;
+	private String aPaterno;
+	private String aMaterno;
+	private String correo;
+	private Date fechaNacimiento;
+	private String telefono;
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getaPaterno() {
+		return aPaterno;
+	}
+	public void setaPaterno(String aPaterno) {
+		this.aPaterno = aPaterno;
+	}
+	public String getaMaterno() {
+		return aMaterno;
+	}
+	public void setaMaterno(String aMaterno) {
+		this.aMaterno = aMaterno;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+}
+</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

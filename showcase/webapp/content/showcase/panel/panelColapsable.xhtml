@@ -1,0 +1,152 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="panelAcordion" class="anchor"></a>
+	<h1 class="page-header">Panel Accordion</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Componente de panel con efecto de colapsado</p>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="panel panel-default" layout="block">
+		<h:panelGroup styleClass="panel-heading" layout="block">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="panel-body" layout="block">
+			<h:panelGroup styleClass="row" layout="block">
+				<h:panelGroup styleClass="col-md-6" layout="block">
+					<p:accordionPanel styleClass="accordionPanelDefault">
+						<p:tab title="Tab 1 accordionPanel Default">
+							<h:panelGroup styleClass="row" layout="block">
+								<h:panelGroup styleClass="col-md-12" layout="block">
+									<h:outputText
+										value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+								</h:panelGroup>
+							</h:panelGroup>
+						</p:tab>
+						<p:tab title="Tab 2">
+							<h:panelGroup styleClass="row" layout="block">
+								<h:panelGroup styleClass="col-md-12" layout="block">
+									<h:outputText
+										value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+								</h:panelGroup>
+							</h:panelGroup>
+						</p:tab>
+						<p:tab title="Tab 3">
+							<h:panelGroup styleClass="row" layout="block">
+								<h:panelGroup styleClass="col-md-12" layout="block">
+									<h:outputText
+										value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+								</h:panelGroup>
+							</h:panelGroup>
+						</p:tab>
+					</p:accordionPanel>
+
+				</h:panelGroup>
+				
+				<h:panelGroup styleClass="col-md-6" layout="block">
+					<p:accordionPanel styleClass="accordionPanelPrimary">
+						<p:tab title="Tab 1 accordionPanel Primary">
+							<h:panelGroup styleClass="row" layout="block">
+								<h:panelGroup styleClass="col-md-12" layout="block">
+									<h:outputText
+										value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+								</h:panelGroup>
+							</h:panelGroup>
+						</p:tab>
+						<p:tab title="Tab 2">
+							<h:panelGroup styleClass="row" layout="block">
+								<h:panelGroup styleClass="col-md-12" layout="block">
+									<h:outputText
+										value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+								</h:panelGroup>
+							</h:panelGroup>
+						</p:tab>
+						<p:tab title="Tab 3">
+							<h:panelGroup styleClass="row" layout="block">
+								<h:panelGroup styleClass="col-md-12" layout="block">
+									<h:outputText
+										value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+										sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " />
+								</h:panelGroup>
+							</h:panelGroup>
+						</p:tab>
+					</p:accordionPanel>
+				</h:panelGroup>
+			</h:panelGroup>
+			
+		</h:panelGroup>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Para utilizar el componente <code>p:accordionPanel</code> 
+		de primeFaces es necesario agregar el atributo 
+		<code>styleClass="accordionPanelDefault"</code> ó 
+		<code>styleClass="accordionPanelPrimary"</code> </p>
+	</h:panelGroup>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#Paneltab1" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="Paneltab1">
+				<pre class="prettyprint linenums">
+&lt;p:accordionPanel styleClass="accordionPanelDefault"&gt;
+	&lt;p:tab title="Tab 1"&gt;
+		&lt;h:panelGroup styleClass="row" layout="block"&gt;
+			&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+				&lt;h:outputText value="Lorem ipsum dolor sit amet..." /&gt;
+			&lt;/h:panelGroup&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/p:tab&gt;
+	&lt;p:tab title="Tab 2"&gt;
+		&lt;h:panelGroup styleClass="row" layout="block"&gt;
+			&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+				&lt;h:outputText value="Lorem ipsum dolor sit amet..." /&gt;
+			&lt;/h:panelGroup&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/p:tab&gt;
+	&lt;p:tab title="Tab 3"&gt;
+		&lt;h:panelGroup styleClass="row" layout="block"&gt;
+			&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+				&lt;h:outputText value="Lorem ipsum dolor sit amet... " /&gt;
+			&lt;/h:panelGroup&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/p:tab&gt;
+&lt;/p:accordionPanel&gt;
+
+&lt;p:accordionPanel styleClass="accordionPanelPrimary"&gt;
+	&lt;p:tab title="Tab 1"&gt;
+		&lt;h:panelGroup styleClass="row" layout="block"&gt;
+			&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+				&lt;h:outputText value="Lorem ipsum dolor sit amet..." /&gt;
+			&lt;/h:panelGroup&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/p:tab&gt;
+	&lt;p:tab title="Tab 2"&gt;
+		&lt;h:panelGroup styleClass="row" layout="block"&gt;
+			&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+				&lt;h:outputText value="Lorem ipsum dolor sit amet..." /&gt;
+			&lt;/h:panelGroup&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/p:tab&gt;
+	&lt;p:tab title="Tab 3"&gt;
+		&lt;h:panelGroup styleClass="row" layout="block"&gt;
+			&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+				&lt;h:outputText value="Lorem ipsum dolor sit amet..." /&gt;
+			&lt;/h:panelGroup&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/p:tab&gt;
+&lt;/p:accordionPanel&gt;
+</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

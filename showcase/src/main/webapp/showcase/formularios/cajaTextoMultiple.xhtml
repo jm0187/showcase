@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="CajaMultiple" class="anchor"></a>
+	<h1 class="page-header">Caja de Texto Múltiple</h1>
+
+	<div class="bs-callout bs-callout-intro">
+		<p class="small">En esta sección se mostrara un ejemplo básico de
+			una caja múltiple.</p>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">EJEMPLO</div>
+		<div class="panel-body">
+			<h:panelGroup styleClass="row" layout="block">
+
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<h:panelGroup styleClass="form-group">
+						<h:outputLabel value="Área de Texto" />
+						<h:inputTextarea styleClass="form-control" />
+					</h:panelGroup>
+				</h:panelGroup>
+
+			</h:panelGroup>
+		</div>
+	</div>
+
+	<div class="bs-callout bs-callout-info">
+		<p class="small">
+			Para agrupar elementos en necesario agregar un
+			<code>h:panelGroup</code>
+			con la propiedad
+			<code>styleClass="form-group"</code>
+			y cada uno de los controles agrupados deben de tener la propiedad
+			<code>styleClass="form-control"</code>
+			.
+		</p>
+	</div>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab9" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab9">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+	&lt;h:outputLabel value="Área de Texto"/&gt;
+	&lt;h:inputTextarea styleClass="form-control"/&gt;	
+&lt;/h:panelGroup&gt;
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

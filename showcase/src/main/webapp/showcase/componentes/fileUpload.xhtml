@@ -1,0 +1,129 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="FileUpload" class="anchor"></a>
+	<h1 class="page-header">FileUpload</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Componente para la carga de archivos al servidor.</p>
+	</h:panelGroup>	
+	<h:panelGroup styleClass="panel panel-default" layout="block">
+		<h:panelGroup class="panel-heading" layout="block">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="panel-body" layout="block">
+			<h:panelGroup styleClass="row" layout="block">
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						  <p:fileUpload 
+						  	value="#{fileUploadMB.file}" 
+						  	mode="simple"
+						  	skinSimple="true"/>
+					</h:panelGroup>	  	
+    				<h:panelGroup styleClass="col-md-12" layout="block">	  
+    					<h:panelGroup styleClass="row" layout="block">
+    					  <p:commandButton 
+    					  styleClass="btn btn-primary" 
+    					  value="Upload" 
+    					  ajax="false" 
+    					  actionListener="#{fileUploadMB.upload}" 
+    					  disabled="true" />
+    					 </h:panelGroup>
+					</h:panelGroup>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+	
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Se recomienda envolver este componente dentro de un formulario con el atributo <code>enctype = "multipart/form-data"</code></p>
+		<p class="small"></p>
+		<p class="small">El componente se encuentra deshabilitado en este showcase.</p>
+	</h:panelGroup>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#fileUploadtab1" data-toggle="tab">XHTML</a></li>
+			<li><a href="#fileUploadtab2" data-toggle="tab">FileUploadMB.java</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="fileUploadtab1">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup styleClass="panel-body" layout="block"&gt;
+  &lt;h:form id="form" enctype="multipart/form-data"&gt;
+	&lt;h:panelGroup styleClass="row" layout="block"&gt;
+	  &lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+		&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+		 &lt;p:fileUpload 
+			 value="\#{fileUploadMB.file}" 
+			 mode="simple"
+			 skinSimple="true"/&gt;
+		 &lt;/h:panelGroup&gt;	  	
+	    &lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;	
+	    	&lt;h:panelGroup styleClass="row" layout="block"&gt;  
+	    	 &lt;p:commandButton
+	    	  	 styleClass="btn btn-primary"  
+	    		 value="Upload" 
+	    		 ajax="false" 
+	    		 actionListener="\#{fileUploadMB.upload}" 
+	    		 disabled="true" /&gt;
+	    	&lt;/h:panelGroup&gt;
+		&lt;/h:panelGroup&gt;
+	  &lt;/h:panelGroup&gt;
+	 &lt;/h:panelGroup&gt;
+  &lt;/h:form&gt;
+&lt;/h:panelGroup&gt;				
+				</pre>
+			</div>
+			<div class="tab-pane" id="fileUploadtab2">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.controller;
+
+import java.io.Serializable;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+
+import org.primefaces.model.UploadedFile;
+
+/**
+ * Clase encargada del manejo del componente FileUpload
+ * 
+ * @author Francisco Manuel Carrasco Lezama
+ * @version 1.0
+ * @since 24/02/2015
+ *
+ */
+@ManagedBean
+public class FileUploadMB implements Serializable {
+
+	private static final long serialVersionUID = 5277084682213919895L;
+	private UploadedFile file;
+	/**
+	 * Método que se ejecuta al lanzar la petición del usuario 
+	 * y muestra mensaje de carga.
+	 */
+	public void upload() {
+		if (file != null) {
+			FacesMessage message = new FacesMessage("Exito",
+					file.getFileName() + " ha sido cargado.");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+		}
+	}
+
+	public UploadedFile getFile() {
+		return file;
+	}
+
+	public void setFile(UploadedFile file) {
+		this.file = file;
+	}
+}
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

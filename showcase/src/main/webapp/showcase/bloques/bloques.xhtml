@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/baseTemplate.xhtml">
+	<ui:define name="pageTitle">Secciones</ui:define>
+	<ui:define name="pageHeadExtra">
+		<h:outputStylesheet library="css" name="prettify.css" />
+	</ui:define>
+
+	<ui:define name="sectionContent">
+		<h:form>
+			<ui:include src="/content/showcase/bloques/header.xhtml" />
+			<ui:include src="/content/showcase/bloques/reticula-xs.xhtml" />
+			<ui:include src="/content/showcase/bloques/reticula-sm.xhtml" />
+			<ui:include src="/content/showcase/bloques/reticula-md.xhtml" />
+			<ui:include src="/content/showcase/bloques/reticula-lg.xhtml" />
+			<ui:include src="/content/showcase/bloques/footer.xhtml" />
+		</h:form>
+
+	</ui:define>
+	<ui:define name="sectionScriptExtra">
+		<h:outputScript library="primefaces" name="jquery/jquery.js" />
+		<h:outputScript library="javascript" name="prettify.js" />
+		<h:outputScript library="javascript" name="showcase.js" />
+	</ui:define>
+</ui:composition>

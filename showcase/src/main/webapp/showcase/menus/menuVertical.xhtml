@@ -1,0 +1,71 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="MenuVertical" class="anchor"></a>
+	<h1 class="page-header">Menú Vertical</h1>
+
+	<div class="bs-callout bs-callout-intro">
+		<p class="small">En esta sección se mostrara como crear un menú
+			vertical haciendo uso de Bootstrap.</p>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">EJEMPLO</div>
+		<div class="panel-body">
+			<h:panelGroup styleClass="row" layout="block">
+				<h:panelGroup styleClass="col-md-3" layout="block">
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active"><h:outputLink value="#">Home</h:outputLink></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Menu 1 <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><h:outputLink value="#">Submenu 1-1</h:outputLink></li>
+								<li><h:outputLink value="#">Submenu 1-2</h:outputLink></li>
+								<li><h:outputLink value="#">Submenu 1-3</h:outputLink></li>
+							</ul></li>
+						<li><h:outputLink value="#">Menu 2</h:outputLink></li>
+						<li><h:outputLink value="#">Menu 3</h:outputLink></li>
+					</ul>
+				</h:panelGroup>
+			</h:panelGroup>
+		</div>
+	</div>
+
+	<div class="bs-callout bs-callout-info">
+		<p class="small">
+			Para generar un menú horizontal se hace uso de las clases de
+			Bootstrap
+			<code>nav</code>
+			y
+			<code>nav-pills nav-stacked</code>
+			.
+		</p>
+	</div>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab8" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab8">
+				<pre class="prettyprint linenums">
+&lt;ul class="nav nav-pills nav-stacked"&gt;
+	&lt;li class="active"&gt;&lt;h:outputLink value="#"&gt;Home&lt;/h:outputLink&gt;&lt;/li&gt;
+	&lt;li class="dropdown"&gt;&lt;a class="dropdown-toggle"
+		data-toggle="dropdown" href="#"&gt;Menu 1 &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+		&lt;ul class="dropdown-menu"&gt;
+			&lt;li&gt;&lt;h:outputLink value="#"&gt;Submenu 1-1&lt;/h:outputLink&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;h:outputLink value="#"&gt;Submenu 1-2&lt;/h:outputLink&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;h:outputLink value="#"&gt;Submenu 1-3&lt;/h:outputLink&gt;&lt;/li&gt;
+		&lt;/ul&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;h:outputLink value="#"&gt;Menu 2&lt;/h:outputLink&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;h:outputLink value="#"&gt;Menu 3&lt;/h:outputLink&gt;&lt;/li&gt;
+&lt;/ul&gt;
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

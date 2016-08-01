@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="lDesordenada" class="anchor"></a>
+	<h1 class="page-header">Lista Desordenada</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">En esta sección se muestra como desplegar una lista desordenada.</p>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="tab-pane" layout="block" class="panel panel-default">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="panel-heading">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="tab-pane" layout="block" class="panel-body">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="row">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="col-md-12">
+			<ul>
+  				<li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+  				<li>Vivamus sed leo mollis, ullamcorper lacus et, aliquet nibh.</li>
+  				<li>Nunc nec accumsan nunc. Cras ac lorem a tellus pulvinar pulvinar.</li>
+  				<li>In dignissim tortor id libero vulputate mollis.</li>
+			</ul>
+		</h:panelGroup>
+		</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Para hacer uso de las listas desordenadas se utiliza la etiqueta <code>&lt;ul&gt;</code> y por cada 
+		elemento la etiqueta <code>&lt;li&gt;</code>.</p> 
+	</h:panelGroup>
+	
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab7" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab7">
+				<pre class="prettyprint linenums">&lt;ul&gt;
+	&lt;li&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt; 
+	&lt;li&gt; Vivamus sed leo mollis, ullamcorper lacus et, aliquet nibh. &lt;/li&gt;
+	&lt;li&gt; Nunc nec accumsan nunc. Cras ac lorem a tellus pulvinar pulvinar. &lt;/li&gt;
+	&lt;li&gt; In dignissim tortor id libero vulputate mollis. &lt;/li&gt; 
+&lt;/ul&gt;</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

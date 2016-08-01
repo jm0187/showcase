@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="header" class="anchor"></a>
+	<h1 class="page-header">Header</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Elemento para colocar encabezados en las páginas.</p>
+	</h:panelGroup>
+
+	<h:panelGroup styleClass="panel panel-default" layout="block">
+		<h:panelGroup styleClass="panel-heading" layout="block">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="panel-body" layout="block">
+			<h:panelGroup styleClass="row" layout="block">
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<header>
+						<h:panelGroup styleClass="row" layout="block">
+							<h:panelGroup styleClass="col-sm-6 col-md-6" layout="block">
+								<h:link outcome="bloques">
+									<h:graphicImage value="/resources/images/template/infotec.png"/>
+								</h:link>
+							</h:panelGroup>
+							<h:panelGroup styleClass="col-sm-6 col-md-6" layout="block">
+								<h4 class="hidden-xs">Infotec.com.mx</h4>
+							</h:panelGroup>
+						</h:panelGroup>
+					</header>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Para el uso del elemento header es necesario generar un panel usando <code>panelGroup</code>
+		y agregar los atributos:
+		<code>styleClass="col-sm-* col-md-*" layout="block"</code> donde los * representan el número de columnas a ocupar,
+		el mismo código aplica para agregar el dominio de la empresa.</p>
+	</h:panelGroup>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab1" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab1">
+				<pre class="prettyprint linenums">
+&lt;header&gt;
+	&lt;h:panelGroup styleClass="row" layout="block"&gt;
+		&lt;h:panelGroup styleClass="col-sm-6 col-md-6" layout="block"&gt;
+			&lt;h:link outcome="bloques"&gt;
+				&lt;h:graphicImage value="/resources/images/template/infotec.png"/&gt;
+			&lt;/h:link&gt;
+		&lt;/h:panelGroup&gt;
+		&lt;h:panelGroup styleClass="col-sm-6 col-md-6" layout="block"&gt;
+			&lt;h4 class="hidden-xs"&gt;Infotec.com.mx&lt;/h4&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/h:panelGroup&gt;
+&lt;/header&gt;
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

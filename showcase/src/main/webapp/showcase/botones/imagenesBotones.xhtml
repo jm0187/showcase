@@ -1,0 +1,99 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="BotonesImagenes" class="anchor"></a>
+	<h1 class="page-header">Botones con Imágenes</h1>
+
+	<div class="bs-callout bs-callout-intro">
+		<p class="small">En esta sección se muestra como agregar iconos a
+			los botones.</p>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">EJEMPLO</div>
+		<div class="panel-body">
+			<h:panelGroup styleClass="row" layout="block">
+
+				<h:panelGroup styleClass="col-md-3" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:commandButton value="Guardar" icon="ui-icon-disk"
+							styleClass="btn btn-primary form-control" />
+					</h:panelGroup>
+				</h:panelGroup>
+				<h:panelGroup styleClass="col-md-3" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:commandButton value="Abrir" icon="ui-icon-folder-open"
+							styleClass="btn btn-primary form-control" />
+					</h:panelGroup>
+				</h:panelGroup>
+				<h:panelGroup styleClass="col-md-3" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:commandButton value="Nuevo" icon="ui-icon-document"
+							styleClass="btn btn-primary form-control" />
+					</h:panelGroup>
+				</h:panelGroup>
+				<h:panelGroup styleClass="col-md-3" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:commandButton value="Editar" icon="ui-icon-pencil"
+							styleClass="btn btn-primary form-control" />
+					</h:panelGroup>
+				</h:panelGroup>
+
+			</h:panelGroup>
+		</div>
+	</div>
+
+	<div class="bs-callout bs-callout-info">
+		<p class="small">
+			Para añadir el icono al botón, se agrega la propiedad
+			<code>icon</code>
+			y el nombre del elemento necesario por ejemplo:
+			<code>ui-icon-disk</code>
+			,
+			<code>ui-icon-folder-open</code>
+			,
+			<code>ui-icon-document</code>
+			,
+			<code>ui-icon-pencil</code>
+			, etc.
+		</p>
+		<p class="small">
+			Para más información de click
+			<h:outputLink
+				value="http://jquery-ui.googlecode.com/svn/tags/1.6rc3/tests/static/icons.html"
+				target="_blank">aquí</h:outputLink>
+			.
+		</p>
+		<p class="small">
+			Para una mejor visualización de los botones es necesario que se
+			envuelvan dentro de contenedor de tipo
+			<code>h:panelGroup</code>
+			con el atributo
+			<code>styleClass="form-group"</code>
+			.
+		</p>
+	</div>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab1" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab1">
+				<pre class="prettyprint linenums">
+					
+&lt;h:panelGroup styleClass="col-md-3" layout="block"&gt;
+	&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+		&lt;p:commandButton value="Guardar" icon="ui-icon-disk"
+		styleClass="btn btn-primary form-control" /&gt;
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

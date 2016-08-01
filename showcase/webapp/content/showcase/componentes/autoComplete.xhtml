@@ -1,0 +1,106 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="AutoComplete" class="anchor"></a>
+	<h1 class="page-header">AutoComplete</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Componente que muestra sugerencias mientras que la entrada está siendo escrita.</p>
+	</h:panelGroup>
+	<h:panelGroup styleClass="panel panel-default" layout="block">
+		<h:panelGroup class="panel-heading" layout="block">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="panel-body" layout="block">
+			<h:panelGroup styleClass="row" layout="block">
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<h:outputLabel value="Nombre"/>
+						<p:autoComplete
+						 value="#{autoCompleteMB.texto}"
+						 styleClass="autoComplete" 
+						 completeMethod="#{autoCompleteMB.completaTexto}"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Para el uso de este componente es necesario agregar el atributo<code>styleClass="autoComplete"</code>.</p>
+	</h:panelGroup>
+	
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#aCompletetab1" data-toggle="tab">XHTML</a></li>
+			<li><a href="#aCompletetab2" data-toggle="tab">AutoCompleteMB.java</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="aCompletetab1">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup styleClass="row" layout="block"&gt;
+  &lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+	&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+	 &lt;h:outputLabel value="Nombre"/&gt;
+	 &lt;p:autoComplete
+		 value="\#{autoCompleteMB.texto}"
+		 styleClass="autoComplete" 
+		 completeMethod="\#{autoCompleteMB.completaTexto}"/&gt;
+	&lt;/h:panelGroup&gt;
+  &lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+				</pre>
+			</div>
+			<div class="tab-pane" id="aCompletetab2">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.controller;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+/**
+ * Clase que se encarga del manejo del componente AutoComplete 
+ * @author Francisco Manuel Carrasco Lezama 
+ * @version 1.0
+ * @since 25/02/2015
+ */
+@ManagedBean
+public class AutoCompleteMB implements Serializable {
+
+	private static final long serialVersionUID = -7560150000849600690L;
+	private String texto;
+	
+	/**
+	 * Método que autocompleta una lista de números
+	 * para mostrar el funcionamiento del componente
+	 * autocomplete.
+	 * @param query cadena de entrada.
+	 * @return Lista de opciones autocompletadas.
+	 */
+	public List&lt;String&gt; completaTexto(String query) {
+        List&lt;String&gt; results = new ArrayList&lt;String&gt;();
+        for(int i = 0; i &lt; 10; i++) {
+            results.add(query + i);
+        }
+         
+        return results;
+    }
+	
+	//Getters Setters
+	public String getTexto() {
+		return texto;
+	}
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+	
+}
+
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

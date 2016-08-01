@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/baseTemplate.xhtml">
+	<ui:define name="pageHeadExtra">
+		<h:outputStylesheet library="css" name="prettify.css" />
+	</ui:define>
+
+	<ui:define name="sectionContent">
+		<h:form>
+			<p:growl id="growl" life="2000" />
+			
+			<ui:include src="/content/showcase/botones/opcionesBotones.xhtml" />
+			<ui:include src="/content/showcase/botones/imagenesBotones.xhtml" />
+			<ui:include src="/content/showcase/botones/tamanosBotones.xhtml" />
+		</h:form>
+
+	</ui:define>
+	<ui:define name="sectionScriptExtra">
+		<h:outputScript library="primefaces" name="jquery/jquery.js" />
+		<h:outputScript library="javascript" name="prettify.js" />
+		<h:outputScript library="javascript" name="showcase.js" />
+	</ui:define>
+</ui:composition>

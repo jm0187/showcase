@@ -1,0 +1,79 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="Badges" class="anchor"></a>
+	<h1 class="page-header">Badges</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Componente que se emplean para destacar elementos nuevos o que no han sido vístos.</p>
+	</h:panelGroup>
+	<h:panelGroup styleClass="panel panel-default" layout="block">
+		<h:panelGroup class="panel-heading" layout="block">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="panel-body" layout="block"
+			id="badgesComponent">
+			<h:panelGroup styleClass="row" layout="block">
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<h:outputLink id="link" title="Inbox" value="#"> 
+						<h:outputText value="Inbox" />
+							<span class="badge">42</span>
+						</h:outputLink>
+					</h:panelGroup>
+				</h:panelGroup>
+			</h:panelGroup>
+
+			<h:panelGroup styleClass="row" layout="block">
+				<ul class="nav nav-pills nav-stacked">
+					<li class="active">
+					
+					<h:outputLink id="link2" title="Inbox" value="#"> 
+						<span class="badge pull-right">42</span>Inicio
+					</h:outputLink>
+					</li>
+				</ul>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Para el uso de este componente es necesario dentro de un <strong>span</strong>
+		utilizar el atributo<code>class="badge"</code></p>
+	</h:panelGroup>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#badgettab1" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="badgettab1">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup styleClass="panel-body" layout="block" id="badgesComponent"&gt;
+  &lt;h:panelGroup styleClass="row" layout="block"&gt;
+   &lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+	&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+		&lt;h:outputLink id="link" title="Inbox" value="#"&gt; 
+			&lt;h:outputText value="Inbox" /&gt;
+			&lt;span class="badge"&gt;42&lt;/span&gt;
+		&lt;/h:outputLink&gt;
+	&lt;/h:panelGroup&gt;
+  &lt;/h:panelGroup&gt;
+ &lt;/h:panelGroup&gt;			
+  &lt;h:panelGroup styleClass="row" layout="block"&gt;
+	&lt;ul class="nav nav-pills nav-stacked"&gt;
+  	 &lt;li class="active"&gt;
+      &lt;h:outputLink id="link2" title="Inbox" value="#"&gt;
+      	&lt;span class="badge pull-right"&gt;42&lt;/span&gt;
+      		Inicio
+    	&lt;/h:outputLink&gt;
+  	 &lt;/li&gt;
+	&lt;/ul&gt;
+  &lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

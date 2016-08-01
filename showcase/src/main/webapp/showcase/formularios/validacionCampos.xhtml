@@ -1,0 +1,219 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="ValidacionCampos" class="anchor"></a>
+	<h1 class="page-header">Validación de Campos</h1>
+
+	<div class="bs-callout bs-callout-intro">
+		<p class="small">En esta sección se mostrara como validar campos
+			requeridos y resaltarlos.</p>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">EJEMPLO</div>
+		<div class="panel-body">
+			<h:panelGroup id="panelUsuario" styleClass="row" layout="block">
+
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:outputLabel id="lblNombre" value="Nombre" for="txtNombre" />
+						<p:inputText id="txtNombre"
+							value="#{validacionCamposMB.usuario.nombre}"
+							styleClass="form-control" required="true"
+							requiredMessage="El campo Nombre es requerido" />
+						<h:message for="txtNombre" styleClass="label label-danger" />
+					</h:panelGroup>
+				</h:panelGroup>
+
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:outputLabel id="lblPaterno" value="Apellido Paterno"
+							for="txtPaterno" />
+						<p:inputText id="txtPaterno"
+							value="#{validacionCamposMB.usuario.aPaterno}"
+							styleClass="form-control" required="true"
+							requiredMessage="El campo Apellido Paterno es requerido" />
+						<h:message for="txtPaterno" styleClass="label label-danger" />
+					</h:panelGroup>
+				</h:panelGroup>
+
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<h:outputLabel value="Apellido Materno" />
+						<h:inputText value="#{validacionCamposMB.usuario.aMaterno}"
+							styleClass="form-control" />
+					</h:panelGroup>
+				</h:panelGroup>
+				<h:panelGroup styleClass="col-md-4" layout="block">
+					<p:commandButton value="GUARDAR"
+						actionListener="#{validacionCamposMB.guardar}"
+						styleClass="btn-primary form-control" update="panelUsuario"
+						process="panelUsuario" />
+				</h:panelGroup>
+
+			</h:panelGroup>
+		</div>
+	</div>
+
+	<div class="bs-callout bs-callout-info">
+		<p class="small">En este caso se hace uso de los controles de
+			PrimeFaces.</p>
+		<p class="small">
+			Tanto la etiqueta como el mensaje deben tener la propiedad
+			<code>for</code>
+			apuntando al input requerido a validar.
+		</p>
+		<p class="small">
+			Se agrega un
+			<code>h:message</code>
+			para mostrar el mensaje de la validación con la propiedad
+			<code>styleClass="label label-danger"</code>
+		</p>
+	</div>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab10" data-toggle="tab">XHTML</a></li>
+			<li><a href="#tab11" data-toggle="tab">ValidacionCamposMB.java</a></li>
+			<li><a href="#tab12" data-toggle="tab">Usuario.java</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab10">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup id="panelUsuario" styleClass="row" layout="block"&gt;
+
+	&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+		&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+			&lt;p:outputLabel id="lblNombre" value="Nombre" for="txtNombre" /&gt;
+			&lt;p:inputText id="txtNombre"
+				value="\#{validacionCamposMB.usuario.nombre}"
+				styleClass="form-control" required="true"
+				requiredMessage="El campo Nombre es requerido" /&gt;
+			&lt;h:message for="txtNombre" styleClass="label label-danger" /&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/h:panelGroup&gt;
+
+	&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+		&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+			&lt;p:outputLabel id="lblPaterno" value="Apellido Paterno"
+				for="txtPaterno" /&gt;
+			&lt;p:inputText id="txtPaterno"
+				value="\#{validacionCamposMB.usuario.aPaterno}"
+				styleClass="form-control" required="true"
+				requiredMessage="El campo Apellido Paterno es requerido" /&gt;
+			&lt;h:message for="txtPaterno" styleClass="label label-danger" /&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/h:panelGroup&gt;
+
+	&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+		&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+			&lt;h:outputLabel value="Apellido Materno" /&gt;
+			&lt;h:inputText value="\#{validacionCamposMB.usuario.aMaterno}"
+				styleClass="form-control" /&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-md-4" layout="block"&gt;
+		&lt;p:commandButton value="GUARDAR"
+			actionListener="\#{validacionCamposMB.guardar}"
+			styleClass="btn-primary form-control" update="panelUsuario"
+			process="panelUsuario" /&gt;
+	&lt;/h:panelGroup&gt;
+
+&lt;/h:panelGroup&gt;
+				</pre>
+			</div>
+			<div class="tab-pane" id="tab11">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.controller;
+
+import java.io.Serializable;
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+
+import mx.infotec.showcase.model.Usuario;
+
+@ManagedBean
+public class ValidacionCamposMB implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private Usuario usuario;
+
+	@PostConstruct
+	private void init() {
+		usuario = new Usuario();
+	}
+
+	public void guardar(ActionEvent actionEvent) {
+
+		String mensaje = "Usuario: " + usuario.getNombre() + " "
+				+ usuario.getaPaterno() + " " + usuario.getaMaterno()
+				+ " Almacenado Correctamente!!!";
+
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				mensaje, null);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+}
+				</pre>
+			</div>
+			<div class="tab-pane" id="tab12">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.model;
+
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+
+	private static final long serialVersionUID = 2889829458038675871L;
+	
+	private String nombre;
+	private String aPaterno;
+	private String aMaterno;
+	private String correo;
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getaPaterno() {
+		return aPaterno;
+	}
+	public void setaPaterno(String aPaterno) {
+		this.aPaterno = aPaterno;
+	}
+	public String getaMaterno() {
+		return aMaterno;
+	}
+	public void setaMaterno(String aMaterno) {
+		this.aMaterno = aMaterno;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+}
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

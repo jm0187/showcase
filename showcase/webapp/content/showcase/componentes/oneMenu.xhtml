@@ -1,0 +1,397 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="OneMenu" class="anchor"></a>
+	<h1 class="page-header">One Menu</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Componente para seleccionar un elemento de una lista.</p>
+	</h:panelGroup>
+	<h:panelGroup styleClass="panel panel-default" layout="block">
+		<h:panelGroup class="panel-heading" layout="block">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="panel-body" layout="block" id="oneMenuComponent">
+			<h:panelGroup styleClass="row" layout="block">
+				<h:panelGroup styleClass="col-md-12" layout="block">
+				  <p:growl id="growlOneMenuMessage" showDetail="false" />
+					<h:panelGroup styleClass="form-group" layout="block">
+					  <p:outputLabel for="oneMenu" value="Seleccione una opción: " />
+      				  <h:selectOneMenu  id="oneMenu" 
+      				  					value="#{oneMenuMB.usuario.idUsuarioPadre}" 
+      				  					styleClass="form-control"
+      				  					required="true"
+      				  					requiredMessage="Es necesario seleccionar un Usuario">
+      				  	<f:selectItem itemValue="" itemLabel="Seleccione un usuario" />
+          				<f:selectItems value="#{oneMenuMB.listaUsuario}" var="usuario"
+								itemLabel="#{usuario.nombre} #{usuario.aPaterno} #{usuario.aMaterno}"
+								itemValue="#{usuario.idUsuario}" />
+        			</h:selectOneMenu>
+        			<h:message for="oneMenu" display="text" id="oneMenuMessage"
+							styleClass="label label-danger" />
+					</h:panelGroup>
+				</h:panelGroup>
+			</h:panelGroup>
+			<h:panelGroup styleClass="row" layout="block">
+				<h:panelGroup styleClass="col-md-4" layout="block">
+					<p:commandButton value="Guardar"
+						actionListener="#{oneMenuMB.click}" styleClass="btn btn-primary"
+						update="growlOneMenuMessage oneMenuMessage oneMenuComponent"
+						process="@this oneMenuComponent" />
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Para el uso de este componente es necesario agregar el atributo<code>styleClass="form-control"</code>.</p>
+	</h:panelGroup>
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tabOneMenu1" data-toggle="tab">XHTML</a></li>
+			<li><a href="#tabOneMenu2" data-toggle="tab">OneMenuMB.java</a></li>
+			<li><a href="#tabOneMenu3" data-toggle="tab">Usuario.java</a></li>
+			<li><a href="#tabOneMenu4" data-toggle="tab">UsuarioService.java</a></li>
+			<li><a href="#tabOneMenu5" data-toggle="tab">UsuarioServiceImpl.java</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tabOneMenu1">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup styleClass="row" layout="block"&gt;
+  &lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+	&lt;p:growl id="growlOneMenuMessage" showDetail="false" /&gt;
+	&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+	&lt;p:outputLabel for="oneMenu" value="Seleccione una opción: " /&gt;
+    &lt;h:selectOneMenu 
+    	id="oneMenu" 
+      	value="\#{oneMenuMB.usuario.idUsuarioPadre}" 
+        styleClass="form-control"
+      	required="true"
+      	requiredMessage="Es necesario seleccionar un Usuario"&gt;
+      	&lt;f:selectItem itemValue="" itemLabel="Seleccione un usuario" /&gt;
+        &lt;f:selectItems value="\#{oneMenuMB.listaUsuario}" var="usuario"
+			itemLabel="\#{usuario.nombre} \#{usuario.aPaterno} \#{usuario.aMaterno}"
+			itemValue="\#{usuario.idUsuario}" /&gt;
+    &lt;/h:selectOneMenu&gt;
+    &lt;h:message for="oneMenu" display="text" id="oneMenuMessage"
+	    styleClass="label label-danger" /&gt;
+ &lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+&lt;h:panelGroup styleClass="row" layout="block"&gt;
+	&lt;h:panelGroup styleClass="col-md-4" layout="block"&gt;
+		&lt;p:commandButton value="Guardar"
+			 actionListener="\#{oneMenuMB.click}" 
+			 styleClass="btn btn-primary"
+			 update="growlOneMenuMessage oneMenuMessage oneMenuComponent"
+			 process="@this oneMenuComponent" /&gt;
+&lt;/h:panelGroup&gt;
+				</pre>
+			</div>
+			<div class="tab-pane" id="tabOneMenu2">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.controller;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
+
+import mx.infotec.showcase.model.Usuario;
+import mx.infotec.showcase.service.UsuarioService;
+/**
+ * Clase encargada del manejo del componente SelectOneMenu.
+ * 
+ * @author Francisco Manuel Carrasco Lezama 
+ * @version 1.0
+ * @since 23/02/2015
+ */
+@ManagedBean
+public class OneMenuMB implements Serializable {
+
+	private static final long serialVersionUID = 639394922063346555L;
+	private List&lt;Usuario&gt; listaUsuario;
+	private Usuario usuario;
+	
+	@ManagedProperty("#{usuarioServiceShowcase}")
+	private UsuarioService  usuarioService;
+
+	@PostConstruct
+	private void init() {
+		usuario = new Usuario();
+		listaUsuario = usuarioService.obtenerUsuarios();
+	}
+	
+	/**
+	 * Método que se ejecuta al mandar el request de la página
+	 * y muestra la fecha seleccionada
+	 */
+	public void click() {
+		 FacesContext facesContext = FacesContext.getCurrentInstance();
+	      facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Id Usuario Seleccionado: "+usuario.getIdUsuarioPadre(),""));
+	 }
+	
+	// Getters Setters
+	
+	public List&lt;Usuario&gt; getListaUsuario() {
+		return listaUsuario;
+	}
+	public UsuarioService getUsuarioService() {
+		return usuarioService;
+	}
+
+	public void setUsuarioService(UsuarioService usuarioService) {
+		this.usuarioService = usuarioService;
+	}
+
+	public void setListaUsuario(List&lt;Usuario&gt; listaUsuario) {
+		this.listaUsuario = listaUsuario;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+}
+
+				</pre>
+			</div>
+			
+			<div class="tab-pane" id="tabOneMenu3">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.model;
+
+import java.io.Serializable;
+import java.util.Date;
+/**
+ * Descripción: Esta clase representa un elemento 
+ * Usuario.
+ * @author Francisco Manuel Carrasco Lezmaa 
+ * @version 1.0
+ * @since 23/02/2015
+ */
+public class Usuario implements Serializable {
+
+	private static final long serialVersionUID = 2889829458038675871L;
+	
+	private String nombre;
+	private String aPaterno;
+	private String aMaterno;
+	private String correo;
+	private Date fechaNacimiento;
+	private String telefono;
+	private boolean registrado;
+	private int idUsuarioPadre;
+	private int idUsuario;
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getaPaterno() {
+		return aPaterno;
+	}
+	public void setaPaterno(String aPaterno) {
+		this.aPaterno = aPaterno;
+	}
+	public String getaMaterno() {
+		return aMaterno;
+	}
+	public void setaMaterno(String aMaterno) {
+		this.aMaterno = aMaterno;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+	public boolean isRegistrado() {
+		return registrado;
+	}
+	public void setRegistrado(boolean registrado) {
+		this.registrado = registrado;
+	}
+	public int getIdUsuarioPadre() {
+		return idUsuarioPadre;
+	}
+	public void setIdUsuarioPadre(int idUsuarioPadre) {
+		this.idUsuarioPadre = idUsuarioPadre;
+	}
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+}
+
+				</pre>
+			</div>
+			
+			<div class="tab-pane" id="tabOneMenu4">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.service;
+
+import java.io.Serializable;
+import java.util.List;
+
+import mx.infotec.showcase.model.Usuario;
+
+public interface UsuarioService extends Serializable {
+	
+	public &lt;ListUsuario&gt; obtenerUsuarios();
+
+}
+
+				</pre>
+			</div>
+			
+			<div class="tab-pane" id="tabOneMenu5">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.service;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+
+import mx.infotec.showcase.model.Usuario;
+
+@ManagedBean(name="usuarioServiceShowcase")
+@ApplicationScoped
+public class UsuarioServiceImpl implements UsuarioService{
+	private static final long serialVersionUID = 1L;
+
+	public List&lt;Usuario&gt; obtenerUsuarios(){
+		
+		Usuario usuario;
+		List&lt;Usuario&gt; listaUsuarios = new ArrayList&lt;Usuario&gt;();
+		
+		usuario = new Usuario();
+		usuario.setIdUsuario(1);
+		usuario.setNombre("Isidro");
+		usuario.setaPaterno("López");
+		usuario.setaMaterno("Sosa");
+		usuario.setCorreo("isidro.lopez@infotec.mx");
+		listaUsuarios.add(usuario);
+		
+		usuario = new Usuario();
+		usuario.setIdUsuario(2);
+		usuario.setNombre("José Luis");
+		usuario.setaPaterno("Méndez");
+		usuario.setaMaterno("Santos");
+		usuario.setCorreo("josel1204@gmail.com");
+		listaUsuarios.add(usuario);
+
+		usuario = new Usuario();
+		usuario.setIdUsuario(3);
+		usuario.setNombre("Martín");
+		usuario.setaPaterno("Martínez");
+		usuario.setaMaterno("Soto");
+		usuario.setCorreo("jm0187@gmail.com");
+		listaUsuarios.add(usuario);
+		
+		usuario = new Usuario();
+		usuario.setIdUsuario(4);
+		usuario.setNombre("Isidro");
+		usuario.setaPaterno("López");
+		usuario.setaMaterno("Sosa");
+		usuario.setCorreo("isidro.lopez@infotec.mx");
+		listaUsuarios.add(usuario);
+		
+		usuario = new Usuario();
+		usuario.setIdUsuario(5);
+		usuario.setNombre("José Luis");
+		usuario.setaPaterno("Méndez");
+		usuario.setaMaterno("Santos");
+		usuario.setCorreo("josel1204@gmail.com");
+		listaUsuarios.add(usuario);
+
+		usuario = new Usuario();
+		usuario.setIdUsuario(6);
+		usuario.setNombre("Martín");
+		usuario.setaPaterno("Martínez");
+		usuario.setaMaterno("Soto");
+		usuario.setCorreo("jm0187@gmail.com");
+		listaUsuarios.add(usuario);
+		
+		usuario = new Usuario();
+		usuario.setIdUsuario(7);
+		usuario.setNombre("Isidro");
+		usuario.setaPaterno("López");
+		usuario.setaMaterno("Sosa");
+		usuario.setCorreo("isidro.lopez@infotec.mx");
+		listaUsuarios.add(usuario);
+		
+		usuario = new Usuario();
+		usuario.setIdUsuario(8);
+		usuario.setNombre("José Luis");
+		usuario.setaPaterno("Méndez");
+		usuario.setaMaterno("Santos");
+		usuario.setCorreo("josel1204@gmail.com");
+		listaUsuarios.add(usuario);
+
+		usuario = new Usuario();
+		usuario.setIdUsuario(9);
+		usuario.setNombre("Martín");
+		usuario.setaPaterno("Martínez");
+		usuario.setaMaterno("Soto");
+		usuario.setCorreo("jm0187@gmail.com");
+		listaUsuarios.add(usuario);
+		
+		usuario = new Usuario();
+		usuario.setIdUsuario(10);
+		usuario.setNombre("Isidro");
+		usuario.setaPaterno("López");
+		usuario.setaMaterno("Sosa");
+		usuario.setCorreo("isidro.lopez@infotec.mx");
+		listaUsuarios.add(usuario);
+		
+		usuario = new Usuario();
+		usuario.setIdUsuario(11);
+		usuario.setNombre("José Luis");
+		usuario.setaPaterno("Méndez");
+		usuario.setaMaterno("Santos");
+		usuario.setCorreo("josel1204@gmail.com");
+		listaUsuarios.add(usuario);
+
+		usuario = new Usuario();
+		usuario.setIdUsuario(12);
+		usuario.setNombre("Martín");
+		usuario.setaPaterno("Martínez");
+		usuario.setaMaterno("Soto");
+		usuario.setCorreo("jm0187@gmail.com");
+		listaUsuarios.add(usuario);
+		
+		return listaUsuarios;
+		
+	}
+}
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

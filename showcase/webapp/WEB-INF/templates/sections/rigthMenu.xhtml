@@ -1,0 +1,130 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+
+	<div id="myNav" data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+		<ul class="nav nav-pills nav-stacked nav-container">
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" 
+					href="#{request.contextPath}/content/showcase/bloquesTexto/bloquesTexto.jsf">
+					Bloques de Texto  <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#{request.contextPath}/content/showcase/bloquesTexto/bloquesTexto.jsf#alternativasAlineacion">Alternativas de Alineación</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloquesTexto/bloquesTexto.jsf#citas">Citas</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloquesTexto/bloquesTexto.jsf#cTexto">Cuerpo de Texto</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloquesTexto/bloquesTexto.jsf#encabezados">Encabezados</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloquesTexto/bloquesTexto.jsf#lDesordenada">Lista Desordenada</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloquesTexto/bloquesTexto.jsf#lOrdenada">Lista Ordenada</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloquesTexto/bloquesTexto.jsf#tCursivas">Texto en Cursivas</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloquesTexto/bloquesTexto.jsf#tNegritas">Texto en Negritas</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloquesTexto/bloquesTexto.jsf#tPeque">Texto en Pequeño</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" 
+					href="#{request.contextPath}/content/showcase/bloques/bloques.jsf">
+					Bloques  <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#{request.contextPath}/content/showcase/bloques/bloques.jsf#header">Header</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloques/bloques.jsf#col-xs">Retícula col-xs-*</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloques/bloques.jsf#col-sm">Retícula col-sm-*</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloques/bloques.jsf#col-md">Retícula col-md-*</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloques/bloques.jsf#col-lg">Retícula col-lg-*</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/bloques/bloques.jsf#footer">Footer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" 
+					href="#{request.contextPath}/content/showcase/botones/botones.jsf">
+					Botones  <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#{request.contextPath}/content/showcase/botones/botones.jsf#BotonesImagenes">Botones con Imágenes</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/botones/botones.jsf#OpcionesBotones">Opciones de Botones</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/botones/botones.jsf#TamanoBotones">Tamaños de Botones</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" 
+					href="#{request.contextPath}/content/showcase/componentes/componentes.jsf">
+					Componentes  <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#Alertas">Alertas</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#AutoComplete">AutoComplete</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#Badges">Badges</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#BooleanCheck">BooleanCheck</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#Calendario">Calendario</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#FileDownload">FileDownload</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#FileUpload">FileUpload</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#InputMask">InputMask</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#ListBox">ListBox</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#OneMenu">One Menu</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/componentes/componentes.jsf#RadioButton">RadioButton</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" 
+					href="#{request.contextPath}/content/showcase/formularios/formularios.jsf">
+					Formularios  <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#{request.contextPath}/content/showcase/formularios/formularios.jsf#AgrupacionElementos">Agrupación de elementos</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/formularios/formularios.jsf#CajaAyuda">Caja de Texto con Ayuda</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/formularios/formularios.jsf#CajaMultiple">Caja de Texto Múltiple</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/formularios/formularios.jsf#CajaSencilla">Caja de Texto Sencilla</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/formularios/formularios.jsf#FormularioBasico">Formulario Básico</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/formularios/formularios.jsf#FormularioLineal">Formulario Lineal</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/formularios/formularios.jsf#ValidacionCampos">Validación de Campos</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/formularios/formularios.jsf#VentanaModal">Ventana Modal</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" 
+					href="#{request.contextPath}/content/showcase/menus/menus.jsf">
+					Menús  <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#{request.contextPath}/content/showcase/menus/menus.jsf#MenuHorizontal">Menú Horizontal</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/menus/menus.jsf#MenuVertical">Menú Vertical</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" 
+					href="#{request.contextPath}/content/showcase/panel/panel.jsf">
+					Panel  <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#{request.contextPath}/content/showcase/panel/panel.jsf#panel">Panel</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/panel/panel.jsf#panelAcordion">Panel Acordion</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/panel/panel.jsf#panelWizard">Panel Wizard</a></li>
+					
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" 
+					href="#{request.contextPath}/content/showcase/tablas/tablas.jsf">
+					Tablas  <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#{request.contextPath}/content/showcase/tablas/tablas.jsf#tBasica">Tabla Básica</a></li>
+					<li><a href="#{request.contextPath}/content/showcase/tablas/tablas.jsf#tPagina">Tabla Paginada</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	</div>
+	<!--/.sidebar-offcanvas-->
+</ui:composition>

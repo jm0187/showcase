@@ -1,0 +1,114 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="TamanoBotones" class="anchor"></a>
+	<h1 class="page-header">Tamaños de Botones</h1>
+
+	<div class="bs-callout bs-callout-intro">
+		<p class="small">A continuación se mostrara como modificar el
+			tamaño de los botones.</p>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">EJEMPLO</div>
+		<div class="panel-body">
+			<h:panelGroup styleClass="row" layout="block">
+
+				<h:panelGroup styleClass="col-md-2" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:commandButton value="Grande" styleClass="btn btn-default btn-lg" />
+						<p:commandButton value="Grande" styleClass="btn btn-primary btn-lg" />
+					</h:panelGroup>
+				</h:panelGroup>
+
+				<h:panelGroup styleClass="col-md-2" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:commandButton value="Básico" styleClass="btn btn-default" />
+						<p:commandButton value="Básico" styleClass="btn btn-primary" />
+					</h:panelGroup>
+				</h:panelGroup>
+
+				<h:panelGroup styleClass="col-md-2" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:commandButton value="Chico" styleClass="btn btn-default btn-sm" />
+						<p:commandButton value="Chico" styleClass="btn btn-primary btn-sm" />
+					</h:panelGroup>
+				</h:panelGroup>
+
+				<h:panelGroup styleClass="col-md-2" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:commandButton value="Extra Chico" styleClass="btn btn-default btn-xs" />
+						<p:commandButton value="Extra Chico" styleClass="btn btn-primary btn-xs" />
+					</h:panelGroup>
+				</h:panelGroup>
+
+			</h:panelGroup>
+		</div>
+	</div>
+
+	<div class="bs-callout bs-callout-info">
+		<p class="small">
+			Para modificar el tamaño de los botones se tiene que agregar a la
+			propiedad
+			<code>styleClass</code>
+			alguno de los siguientes atributos. Grande:
+			<code>btn-lg</code>
+			Chico:
+			<code>btn-sm</code>
+			Extra Chico:
+			<code>btn-xs</code>
+		</p>
+		<p class="small">
+			Para una mejor visualización de los botones es necesario que se
+			envuelvan dentro de contenedor de tipo
+			<code>h:panelGroup</code>
+			con el atributo
+			<code>styleClass="form-group"</code>
+			.
+		</p>
+	</div>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab1" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab1">
+				<pre class="prettyprint linenums">
+					
+&lt;h:panelGroup styleClass="col-md-2" layout="block"&gt;
+	&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+		&lt;p:commandButton value="Grande" styleClass="btn btn-default btn-lg" /&gt;
+		&lt;p:commandButton value="Grande" styleClass="btn btn-primary btn-lg" /&gt;
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+&lt;h:panelGroup styleClass="col-md-2" layout="block"&gt;
+	&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+		&lt;p:commandButton value="Básico" styleClass="btn btn-default" /&gt;
+		&lt;p:commandButton value="Básico" styleClass="btn btn-primary" /&gt;
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+&lt;h:panelGroup styleClass="col-md-2" layout="block"&gt;
+	&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+		&lt;p:commandButton value="Chico" styleClass="btn btn-default btn-sm" /&gt;
+		&lt;p:commandButton value="Chico" styleClass="btn btn-primary btn-sm" /&gt;
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+&lt;h:panelGroup styleClass="col-md-2" layout="block"&gt;
+	&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+		&lt;p:commandButton value="Extra Chico" styleClass="btn btn-default btn-xs" /&gt;
+		&lt;p:commandButton value="Extra Chico" styleClass="btn btn-primary btn-xs" /&gt;
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

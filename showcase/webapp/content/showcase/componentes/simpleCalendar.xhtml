@@ -1,0 +1,220 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="Calendario" class="anchor"></a>
+	<h1 class="page-header">Calendario</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Componente que nos proporciona la facilidad de seleccionar una fecha.</p>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="panel panel-default" layout="block">
+		<h:panelGroup styleClass="panel-heading" layout="block">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="panel-body" layout="block" id="calendarComponent">
+			<h:panelGroup styleClass="row" layout="block">
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<p:growl id="msgs" showDetail="false"/>
+					<h:panelGroup styleClass="form-group" layout="block">
+						<p:outputLabel 
+							value="Fecha de Nacimiento"
+							for="calendario" />
+						<h:panelGroup styleClass="input-group" layout="block">
+						<p:calendar 
+							value="#{calendarMB.usuario.fechaNacimiento}"
+							pattern="dd/MM/yyyy"
+							id="calendario"
+							styleClass="calendar" 
+							readonlyInput="true" 
+							required="true"
+							requiredMessage="La fecha de nacimiento es requerida">
+						</p:calendar>
+							<h:panelGroup styleClass="input-group-addon input-group-calendar" layout="block">
+								<i class="glyphicon glyphicon-calendar"></i>
+							</h:panelGroup>
+						</h:panelGroup>
+						<h:message for="calendario" display="text" id="calendarMessage" styleClass="label label-danger" />
+					</h:panelGroup>
+				</h:panelGroup>
+			</h:panelGroup>
+			<h:panelGroup styleClass="row" layout="block">
+			<h:panelGroup styleClass="col-md-4" layout="block">
+				<p:commandButton value="Guardar" 
+					actionListener="#{calendarMB.click}" 
+					styleClass="btn btn-primary" 
+					update="msgs calendarMessage calendarComponent" 
+					process="@this calendarComponent"/>
+			</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Para el uso de este componente es necesario agregar el atributo<code>styleClass="calendar"</code>.</p>
+		<p class="small">Y así mismo para evitar entradas no deseadas en modo texto agregar el atributo <code>readonlyInput="true"</code>.</p>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="tabbable" layout="block">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab1" data-toggle="tab">XHTML</a></li>
+			<li><a href="#tab2" data-toggle="tab">CalendarMB.java</a></li>
+			<li><a href="#tab3" data-toggle="tab">Usuario.java</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab1">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup styleClass="panel-body" layout="block" id="calendarComponent"&gt;
+	&lt;h:panelGroup styleClass="row" layout="block"&gt;
+		&lt;h:panelGroup styleClass="col-md-12" layout="block"&gt;
+			&lt;p:growl id="msgs" showDetail="false"/&gt;
+			&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+			&lt;p:outputLabel 
+				value="Fecha de Nacimiento"
+				for="calendario" /&gt;
+			&lt;h:panelGroup styleClass="input-group" layout="block"&gt;
+				&lt;p:calendar 
+					value="\#{calendarMB.usuario.fechaNacimiento}"
+					id="calendario"
+					pattern="dd/MM/yyyy"
+					styleClass="calendar" 
+					readonlyInput="true" 
+					required="true"
+					requiredMessage="La fecha de nacimiento es requerida"&gt;
+				&lt;/p:calendar&gt;
+				&lt;h:panelGroup styleClass="input-group-addon input-group-calendar" layout="block"&gt;
+					&lt;i class="glyphicon glyphicon-calendar"&gt;&lt;/i&gt;
+				&lt;/h:panelGroup&gt;
+			&lt;/h:panelGroup&gt;
+			&lt;h:message for="calendario" display="text" id="calendarMessage" styleClass="label label-danger" /&gt;
+		&lt;/h:panelGroup&gt;
+		&lt;/h:panelGroup&gt;
+ 	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="row" layout="block"&gt;
+	  &lt;h:panelGroup styleClass="col-md-4" layout="block"&gt;
+		&lt;p:commandButton value="Guardar" 
+			actionListener="\#{calendarMB.click}" 
+			styleClass="btn btn-primary" 
+			update="msgs calendarMessage calendarComponent" 
+			process="@this calendarComponent"/&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+</pre>
+			</div>
+		<div class="tab-pane" id="tab2">
+			<pre class="prettyprint linenums">
+package mx.infotec.showcase.controller;
+
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+
+import mx.infotec.showcase.model.Usuario;
+
+/**
+ * Clase encargada del manejo del componente calendario.
+ * 
+ * @author Francisco Manuel Carrasco Lezama 
+ * @version 1.0
+ * @since 23/02/2015
+ */
+@ManagedBean
+public class CalendarMB implements Serializable {
+	
+	private static final long serialVersionUID = -5705078343518702104L;
+	private Usuario usuario;
+	
+	
+	@PostConstruct
+	public void init(){
+		 usuario = new Usuario();
+	}
+	/**
+	 * Método que se ejecuta al mandar el request de la página
+	 * y muestra la fecha seleccionada
+	 */
+	public void click() {
+		 FacesContext facesContext = FacesContext.getCurrentInstance();
+	     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+	      facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Fecha de Nacimeinto"+
+	    		  format.format(this.usuario.getFechaNacimiento()),""));
+	 }
+
+	//Getters Setters
+	 
+	 public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+}
+</pre>
+		</div>
+			<div class="tab-pane" id="tab3">
+			<pre class="prettyprint linenums">
+package mx.infotec.showcase.model;
+
+import java.io.Serializable;
+import java.util.Date;
+/**
+ * Descripción: Esta clase representa un elemento 
+ * Usuario.
+ * @author Francisco Manuel Carrasco Lezmaa 
+ * @version 1.0
+ * @since 23/02/2015
+ */
+public class Usuario implements Serializable {
+
+	private static final long serialVersionUID = 2889829458038675871L;
+	
+	private String nombre;
+	private String aPaterno;
+	private String aMaterno;
+	private String correo;
+	private Date fechaNacimiento;
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getaPaterno() {
+		return aPaterno;
+	}
+	public void setaPaterno(String aPaterno) {
+		this.aPaterno = aPaterno;
+	}
+	public String getaMaterno() {
+		return aMaterno;
+	}
+	public void setaMaterno(String aMaterno) {
+		this.aMaterno = aMaterno;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+	public Date getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+}
+</pre>
+		</div>
+		
+		</div>
+	</h:panelGroup>
+</ui:composition>

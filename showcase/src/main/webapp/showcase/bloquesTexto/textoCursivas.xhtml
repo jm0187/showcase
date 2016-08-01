@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="tCursivas" class="anchor"></a>
+	<h1 class="page-header">Texto en Cursiva</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">En esta sección se muestra como desplegar texto en cursiva.</p>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="tab-pane" layout="block" class="panel panel-default">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="panel-heading">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="tab-pane" layout="block" class="panel-body">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="row">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="col-md-12">
+			<em> elementum massa at nulla </em>	
+		</h:panelGroup>	
+		</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Se debe utilizar la etiqueta <code>&lt;em&gt;</code> para cambiar la fuente a cursiva.</p>
+	</h:panelGroup>
+	
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab5" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab5">
+				<pre class="prettyprint linenums">&lt;em&gt; elementum massa at nulla &lt;/em&gt;</pre>
+			</div>
+		</div>
+	</div>
+	
+</ui:composition>

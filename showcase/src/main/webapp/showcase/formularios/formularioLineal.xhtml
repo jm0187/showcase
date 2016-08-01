@@ -1,0 +1,195 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="FormularioLineal" class="anchor"></a>
+	<h1 class="page-header">Formulario Lineal</h1>
+
+	<div class="bs-callout bs-callout-intro">
+		<p class="small">En esta sección se mostrara como generar un
+			formulario de forma lineal.</p>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">EJEMPLO</div>
+		<div class="panel-body">
+			<h:panelGroup styleClass="row" layout="block">
+
+				<h:panelGroup styleClass="col-md-3" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<h:outputLabel value="Nombre" />
+						<h:inputText value="#{formularioLinealMB.usuario.nombre}"
+							styleClass="form-control" />
+					</h:panelGroup>
+				</h:panelGroup>
+
+				<h:panelGroup styleClass="col-md-3" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<h:outputLabel value="Apellido Paterno" />
+						<h:inputText value="#{formularioLinealMB.usuario.aPaterno}"
+							styleClass="form-control" />
+					</h:panelGroup>
+				</h:panelGroup>
+
+				<h:panelGroup styleClass="col-md-3" layout="block">
+					<h:panelGroup styleClass="form-group" layout="block">
+						<h:outputLabel value="Apellido Materno" />
+						<h:inputText value="#{formularioLinealMB.usuario.aMaterno}"
+							styleClass="form-control" />
+					</h:panelGroup>
+				</h:panelGroup>
+				<h:panelGroup styleClass="col-md-3" layout="block">
+					<span class="hidden-xs button-align"></span>
+					<p:commandButton value="GUARDAR"
+						actionListener="#{formularioLinealMB.guardar}"
+						styleClass="btn-primary form-control" />
+				</h:panelGroup>
+
+			</h:panelGroup>
+		</div>
+	</div>
+
+	<div class="bs-callout bs-callout-info">
+		<p class="small">
+			Note que se hace uso de
+			<code>col-md-3</code>
+			para que los 4 elementos se muestren de forma uniforme.
+		</p>
+	</div>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab5" data-toggle="tab">XHTML</a></li>
+			<li><a href="#tab6" data-toggle="tab">FormularioLinealMB.java</a></li>
+			<li><a href="#tab7" data-toggle="tab">Usuario.java</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab5">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup styleClass="row" layout="block"&gt;
+
+	&lt;h:panelGroup styleClass="col-md-3" layout="block"&gt;
+		&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+			&lt;h:outputLabel value="Nombre" /&gt;
+			&lt;h:inputText value="\#{formularioLinealMB.usuario.nombre}"
+				styleClass="form-control" /&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/h:panelGroup&gt;
+
+	&lt;h:panelGroup styleClass="col-md-3" layout="block"&gt;
+		&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+			&lt;h:outputLabel value="Apellido Paterno" /&gt;
+			&lt;h:inputText value="\#{formularioLinealMB.usuario.aPaterno}"
+				styleClass="form-control" /&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/h:panelGroup&gt;
+
+	&lt;h:panelGroup styleClass="col-md-3" layout="block"&gt;
+		&lt;h:panelGroup styleClass="form-group" layout="block"&gt;
+			&lt;h:outputLabel value="Apellido Materno" /&gt;
+			&lt;h:inputText value="\#{formularioLinealMB.usuario.aMaterno}"
+				styleClass="form-control" /&gt;
+		&lt;/h:panelGroup&gt;
+	&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="col-md-3" layout="block"&gt;
+		&lt;span class="hidden-xs button-align"&gt;&lt;/span&gt;
+		&lt;p:commandButton value="GUARDAR"
+			actionListener="\#{formularioLinealMB.guardar}"
+			styleClass="btn-primary form-control" /&gt;
+	&lt;/h:panelGroup&gt;
+
+&lt;/h:panelGroup&gt;
+				</pre>
+			</div>
+			<div class="tab-pane" id="tab6">
+				<pre class="prettyprint linenums">
+import java.io.Serializable;
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+
+import mx.infotec.showcase.model.Usuario;
+
+@ManagedBean
+public class formularioLinealMB implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	private Usuario usuario;
+
+	@PostConstruct
+	private void init() {
+		usuario = new Usuario();
+	}
+
+	public void guardar(ActionEvent actionEvent) {
+
+		String mensaje = "Usuario: " + usuario.getNombre() + " "
+				+ usuario.getaPaterno() + " " + usuario.getaMaterno()
+				+ " Almacenado Correctamente!!!";
+
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				mensaje, null);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+}
+				</pre>
+			</div>
+			<div class="tab-pane" id="tab7">
+				<pre class="prettyprint linenums">
+package mx.infotec.showcase.model;
+
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+
+	private static final long serialVersionUID = 2889829458038675871L;
+	
+	private String nombre;
+	private String aPaterno;
+	private String aMaterno;
+	private String correo;
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public String getaPaterno() {
+		return aPaterno;
+	}
+	public void setaPaterno(String aPaterno) {
+		this.aPaterno = aPaterno;
+	}
+	public String getaMaterno() {
+		return aMaterno;
+	}
+	public void setaMaterno(String aMaterno) {
+		this.aMaterno = aMaterno;
+	}
+	public String getCorreo() {
+		return correo;
+	}
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+}
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

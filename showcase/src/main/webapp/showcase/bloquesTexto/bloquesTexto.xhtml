@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/baseTemplate.xhtml">
+	<ui:define name="pageTitle">Bloques de Texto</ui:define>
+	<ui:define name="pageHeadExtra">
+		<h:outputStylesheet library="css" name="prettify.css" />
+	</ui:define>
+
+	<ui:define name="sectionContent">
+		<h:form>
+			<ui:include
+				src="/content/showcase/bloquesTexto/encabezados.xhtml" />
+			<ui:include
+				src="/content/showcase/bloquesTexto/cuerpoTexto.xhtml" />
+			<ui:include
+				src="/content/showcase/bloquesTexto/textoNegritas.xhtml" />
+			<ui:include
+				src="/content/showcase/bloquesTexto/textoCursivas.xhtml" />
+			<ui:include
+				src="/content/showcase/bloquesTexto/textoChico.xhtml" />
+			<ui:include
+				src="/content/showcase/bloquesTexto/listaDesordenada.xhtml" />
+			<ui:include
+				src="/content/showcase/bloquesTexto/listaOrdenada.xhtml" />
+			<ui:include
+				src="/content/showcase/bloquesTexto/citas.xhtml" />
+			<ui:include
+				src="/content/showcase/bloquesTexto/alternativaAlineacion.xhtml" />
+		</h:form>
+	</ui:define>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<h4>Paneles</h4>
+		<p class="small">Remplazar la clase <code>.panel-default</code> para cambiar de color el panel</p>
+		<p class="small"><code>.panel-primary</code> <code>.panel-success</code> <code>.panel-info</code> <code>.panel-warning</code> <code>.panel-danger</code></p>
+	</h:panelGroup>
+	
+	<ui:define name="sectionScriptExtra">
+		<h:outputScript library="primefaces" name="jquery/jquery.js" />
+		<h:outputScript library="javascript" name="prettify.js" />
+		<h:outputScript library="javascript" name="showcase.js" />
+	</ui:define>
+</ui:composition>

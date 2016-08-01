@@ -1,0 +1,130 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="panel" class="anchor"></a>
+	<h1 class="page-header">Panel</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Componente de panel genérico </p>
+	</h:panelGroup>
+	<div class="panel panel-default">
+		<div class="panel-heading">EJEMPLO</div>
+		<div class="panel-body">
+			<h:panelGroup styleClass="row" layout="block">
+				
+				<h:panelGroup styleClass="col-md-6" layout="block">
+					<h:panelGroup styleClass="panel panel-default" layout="block">
+						<h:panelGroup styleClass="panel-heading" layout="block">Título del panel con clase default</h:panelGroup>
+						<h:panelGroup styleClass="panel-body" layout="block">
+							Contenido del panel
+						</h:panelGroup>
+					</h:panelGroup>
+				</h:panelGroup>
+				
+				<h:panelGroup styleClass="col-md-6" layout="block">
+					<h:panelGroup styleClass="panel panel-primary" layout="block">
+						<h:panelGroup styleClass="panel-heading" layout="block">Título del panel con clase primary</h:panelGroup>
+						<h:panelGroup styleClass="panel-body" layout="block">
+							Contenido del panel
+						</h:panelGroup>
+					</h:panelGroup>
+				</h:panelGroup>
+				
+				<h:panelGroup styleClass="col-md-6" layout="block">
+					<h:panelGroup styleClass="panel panel-success" layout="block">
+					<h:panelGroup styleClass="panel-heading" layout="block">Título del panel con clase success</h:panelGroup>
+						<h:panelGroup styleClass="panel-body" layout="block">
+							Contenido del panel
+						</h:panelGroup>
+					</h:panelGroup>	
+				</h:panelGroup>
+				
+				<h:panelGroup styleClass="col-md-6" layout="block">
+					<h:panelGroup styleClass="panel panel-info" layout="block">
+						<h:panelGroup styleClass="panel-heading" layout="block">Título del panel con clase info</h:panelGroup>
+						<h:panelGroup styleClass="panel-body" layout="block">
+							Contenido del panel
+						</h:panelGroup>
+					</h:panelGroup>
+				</h:panelGroup>
+				
+				<h:panelGroup styleClass="col-md-6" layout="block">
+					<h:panelGroup styleClass="panel panel-warning" layout="block">
+						<h:panelGroup styleClass="panel-heading" layout="block">Título del panel con clase warning</h:panelGroup>
+						<h:panelGroup styleClass="panel-body" layout="block">
+							Contenido del panel
+						</h:panelGroup>
+					</h:panelGroup>
+				</h:panelGroup>
+				
+				<h:panelGroup styleClass="col-md-6" layout="block">
+					<h:panelGroup styleClass="panel panel-danger" layout="block">
+					<h:panelGroup styleClass="panel-heading" layout="block">Título del panel con clase danger</h:panelGroup>
+						<h:panelGroup styleClass="panel-body" layout="block">
+							Contenido del panel
+						</h:panelGroup>
+					</h:panelGroup>	
+				</h:panelGroup>
+				
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<h:panelGroup styleClass="panel panel-default" layout="block">
+					<h:panelGroup styleClass="panel-heading" layout="block">Título del panel</h:panelGroup>
+					  <h:panelGroup styleClass="panel-body" layout="block">
+					    Contenido del panel
+					  </h:panelGroup>
+					  <h:panelGroup styleClass="panel-footer" layout="block">Panel con footer</h:panelGroup>
+					</h:panelGroup>
+				</h:panelGroup>
+				
+			</h:panelGroup>
+			
+			
+		</div>
+	</div>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Remplazar la clase <code>.panel-default</code> para cambiar de color el panel</p>
+		<p class="small"><code>.panel-primary</code> <code>.panel-success</code> <code>.panel-info</code> <code>.panel-warning</code> <code>.panel-danger</code></p>
+	</h:panelGroup>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab1" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab1">
+				<pre class="prettyprint linenums">
+&lt;h:panelGroup styleClass="panel panel-default" layout="block"&gt;
+	&lt;h:panelGroup styleClass="panel-heading" layout="block"&gt;Título del panel&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="panel-body" layout="block"&gt;
+		Contenido del panel
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+&lt;h:panelGroup styleClass="panel panel-primary" layout="block"&gt;
+	&lt;h:panelGroup styleClass="panel-heading" layout="block"&gt;Título del panel&lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="panel-body" layout="block"&gt;
+		Contenido del panel
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+&lt;h:panelGroup styleClass="panel panel-default" layout="block"&gt;
+	&lt;h:panelGroup styleClass="panel-heading" layout="block"&gt;Título del panel&lt;/h:panelGroup&gt;
+	  &lt;h:panelGroup styleClass="panel-body" layout="block"&gt;
+	    Contenido del panel
+	  &lt;/h:panelGroup&gt;
+	&lt;h:panelGroup styleClass="panel-footer" layout="block"&gt;
+		Panel con footer
+	&lt;/h:panelGroup&gt;
+&lt;/h:panelGroup&gt;
+
+
+				</pre>
+			</div>
+			
+		</div>
+	</div>    
+</ui:composition>

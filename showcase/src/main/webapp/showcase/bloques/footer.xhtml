@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="footer" class="anchor"></a>
+	<h1 class="page-header">Footer</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">Elemento para colocar información al pie de una página.</p>
+	</h:panelGroup>
+
+	<h:panelGroup styleClass="panel panel-default" layout="block">
+		<h:panelGroup styleClass="panel-heading" layout="block">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="panel-body" layout="block">
+			<h:panelGroup styleClass="row" layout="block">
+				<h:panelGroup styleClass="col-md-12" layout="block">
+					<h:panelGroup styleClass="row" layout="block">
+						<h:panelGroup styleClass="col-md-12" layout="block">
+							<p>Contenido</p>
+						</h:panelGroup>
+					</h:panelGroup>
+					<footer class="footerExample">
+                    	<p>Av. San Fernando 37, Col. Toriello Guerra, Tlalpan, C.P. 14050, México D.F. Copyright © 2015 Derechos reservados.</p>
+                	</footer>
+				</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Para el uso del elemento footer es necesario agregar un elemento <code>footer</code>
+		y agregar el atributo:
+		<code>class="footer"</code></p>
+	</h:panelGroup>
+	
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab1" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab1">
+				<pre class="prettyprint linenums">
+&lt;footer class="footer"&gt;
+   	&lt;p&gt;Av. San Fernando 37, Col. Toriello Guerra, Tlalpan, C.P. 14050, México D.F. Copyright © 2015 Derechos reservados&lt;/p&gt;
+&lt;/footer&gt;
+				</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<a id="alternativasAlineacion" class="anchor"></a>
+	<h1 class="page-header">Alternativas de Alineación</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">En esta sección se muestra la Alternativa de Alineación de las referencias (Cita).</p>
+	</h:panelGroup>
+
+	<h:panelGroup styleClass="tab-pane" layout="block" class="panel panel-default">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="panel-heading">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="tab-pane" layout="block" class="panel-body">
+			<h:panelGroup styleClass="tab-pane" layout="block" class="row">
+			<h:panelGroup styleClass="tab-pane" layout="block" class="col-md-12">
+				<blockquote class="blockquote-reverse">
+					<p>Lorem ipsum dolor sit amet...</p>
+					<footer>Donec quis augue turpis.</footer>
+				</blockquote>
+			</h:panelGroup>
+			</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+	<p class="small">Se utiliza la etiqueta <code>&lt;blockquote&gt;</code>para encerrar el cuerpo de la cita y la etiqueta <code>&lt;footer&gt;</code>
+		para  agregar la referencia y se agrega el atributo <code>class="blockquote-reverse"</code> para cambiar su alineación.</p>
+	</h:panelGroup>
+
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab10" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab10">
+				<pre class="prettyprint linenums">&lt;blockquote class="blockquote-reverse"&gt;
+	&lt;p&gt; Lorem ipsum dolor sit amet.... &lt;/p&gt; 
+	&lt;footer&gt;Donec quis augue turpis. &lt;/footer&gt;
+&lt;/blockquote&gt;</pre>
+			</div>
+		</div>
+	</div>
+
+</ui:composition>

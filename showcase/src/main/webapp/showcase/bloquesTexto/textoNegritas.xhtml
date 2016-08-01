@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="tNegritas" class="anchor"></a>
+	<h1 class="page-header">Texto en Negritas</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">En esta sección se muestra como desplegar texto en negrita.</p>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="tab-pane" layout="block" class="panel panel-default">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="panel-heading">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="tab-pane" layout="block" class="panel-body">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="row">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="col-md-12">
+			<strong> elementum massa at nulla </strong>
+		</h:panelGroup>		
+		</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Se debe utilizar la etiqueta <code>&lt;strong&gt;</code> para cambiar la fuente a negrita.</p>
+	</h:panelGroup>
+	
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab4" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab4">
+				<pre class="prettyprint linenums">&lt;strong&gt; elementum massa at nulla &lt;/strong&gt;</pre>
+			</div>
+		</div>
+	</div>
+</ui:composition>

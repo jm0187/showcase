@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<a id="encabezados" class="anchor"></a>
+	<h1 class="page-header">Encabezados</h1>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-intro" layout="block">
+		<p class="small">En esta sección se muestran los diferentes tamaños de encabezados.</p>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="tab-pane" layout="block" class="panel panel-default">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="panel-heading">EJEMPLO</h:panelGroup>
+		<h:panelGroup styleClass="tab-pane" layout="block" class="panel-body">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="row">
+		<h:panelGroup styleClass="tab-pane" layout="block" class="col-md-12">
+			<ol>
+				<li><h1>h1. Ejemplo Texto</h1></li>
+				<li><h2>h2. Ejemplo Texto</h2></li>
+				<li><h3>h3. Ejemplo Texto</h3></li>
+				<li><h4>h4. Ejemplo Texto</h4></li>
+				<li><h5>h5. Ejemplo Texto</h5></li>
+				<li><h6>h6. Ejemplo Texto</h6></li>
+			</ol>
+		</h:panelGroup>		
+		</h:panelGroup>
+		</h:panelGroup>
+	</h:panelGroup>
+	
+	<h:panelGroup styleClass="bs-callout bs-callout-info" layout="block">
+		<p class="small">Se pueden utilizar las etiquetas <code>h1 h2 h3 h4 h5 h5</code> para añadir encabezados.</p>
+	</h:panelGroup>
+		
+	<div class="tabbable">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#tab2" data-toggle="tab">XHTML</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab2">
+				<pre class="prettyprint linenums">&lt;ol&gt;
+	&lt;li&gt;&lt;h1&gt; h1. Ejemplo Texto &lt;/h1&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;h2&gt; h2. Ejemplo Texto &lt;/h2&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;h3&gt; h3. Ejemplo Texto &lt;/h3&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;h4&gt; h4. Ejemplo Texto &lt;/h4&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;h5&gt; h5. Ejemplo Texto &lt;/h5&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;h6&gt; h6. Ejemplo Texto &lt;/h6&gt;&lt;/li&gt;
+&lt;/ol&gt;</pre>
+			</div>
+		</div>
+	</div>
+
+</ui:composition>
